@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | WILDING in the WEALD</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+            color: #2b4d1a;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #1a4d1a;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4a574;
+            font-size: 40px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 300;
+            color: #d4a574;
+            letter-spacing: 1px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .social-links a img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-icon {
+            width: 45px;
+            height: 45px;
+            background: #d4a574;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a4d1a;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Navigation */
+        nav {
+            background: #1a4d1a;
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #d4d4c4;
+            font-weight: 400;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a7c59" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(26, 77, 26, 0.85);
+            padding: 60px 80px;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            color: #d4d4c4;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #d4d4c4;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 56px;
+            margin-bottom: 20px;
+            color: #d4d4c4;
+            font-weight: 300;
+            background: #1a4d1a;
+            padding: 40px 20px;
+            margin: 0 -40px 0 -40px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            color: #2b4d1a;
+            background: #e8dcc4;
+            padding: 40px;
+        }
+
+        /* What We Offer Grid */
+        .offerings-section {
+            background: #e8dcc4;
+            padding: 0 0 80px 0;
+        }
+
+        .offerings-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .offering-card {
+            background: #1a4d1a;
+            border-radius: 0;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .offering-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .offering-image {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .offering-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            padding: 20px;
+        }
+
+        .offering-content {
+            padding: 30px;
+            text-align: center;
+            color: #d4d4c4;
+        }
+
+        .offering-content h3 {
+            margin-bottom: 15px;
+            color: #d4a574;
+            font-size: 28px;
+            font-weight: 400;
+        }
+
+        .offering-content p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Events Section */
+        .events-section {
+            background: #1a4d1a;
+            padding: 80px 0;
+        }
+
+        .events-section .section-title {
+            background: transparent;
+            margin: 0 0 60px 0;
+        }
+
+        .events-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .event-card {
+            background: #e8dcc4;
+            border-radius: 0;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover {
+            transform: scale(1.03);
+        }
+
+        .event-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 20px;
+        }
+
+        .event-title {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #2b4d1a;
+            min-height: 50px;
+            font-weight: 400;
+        }
+
+        .event-price {
+            color: #2b4d1a;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        /* Archaeology Section */
+        .archaeology-section {
+            background: #e8dcc4;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .archaeology-section h2 {
+            font-size: 56px;
+            margin-bottom: 40px;
+            color: #2b4d1a;
+            font-weight: 300;
+            background: #1a4d1a;
+            color: #d4d4c4;
+            padding: 40px;
+            margin: 0 -40px 40px -40px;
+        }
+
+        .archaeology-section p {
+            max-width: 1000px;
+            margin: 0 auto 20px;
+            font-size: 20px;
+            color: #2b4d1a;
+        }
+
+        .archaeology-section a {
+            color: #1a4d1a;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* Video */
+        .video-section {
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+
+        .video-section h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #2b4d1a;
+        }
+
+        .video-container {
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Accommodation Section */
+        .accommodation-section {
+            background: #1a4d1a;
+            padding: 80px 0;
+        }
+
+        .accommodation-section h2 {
+            font-size: 56px;
+            margin-bottom: 30px;
+            color: #d4d4c4;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .accommodation-intro {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            text-align: center;
+            color: #d4d4c4;
+            font-size: 16px;
+            padding: 0 40px;
+        }
+
+        .accommodation-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .accommodation-card {
+            background: #1a4d1a;
+            border: 3px solid #d4a574;
+            overflow: hidden;
+        }
+
+        .accommodation-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .accommodation-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .accommodation-content {
+            padding: 30px;
+            text-align: center;
+            background: #1a4d1a;
+            color: #d4d4c4;
+        }
+
+        .accommodation-content h3 {
+            margin-bottom: 15px;
+            color: #d4a574;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .accommodation-content p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .accommodation-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .accommodation-cta p {
+            color: #d4d4c4;
+            font-size: 16px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #1a4d1a;
+            color: #d4d4c4;
+            padding: 80px 0;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .contact-section h2 {
+            font-size: 56px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .contact-map {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 60px;
+            background: #e8dcc4;
+            border-radius: 0;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .visit-info h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #d4d4c4;
+            font-weight: 300;
+        }
+
+        .visit-info p {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .visit-info a {
+            color: #d4d4c4;
+            text-decoration: underline;
+        }
+
+        .newsletter-box {
+            background: #e8dcc4;
+            padding: 60px 50px;
+        }
+
+        .newsletter-box h3 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #d4a574;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .newsletter-form input {
+            padding: 15px;
+            border: none;
+            border-bottom: 2px solid #2b4d1a;
+            background: transparent;
+            font-size: 16px;
+            color: #2b4d1a;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #d4a574;
+        }
+
+        .newsletter-form button {
+            padding: 15px 40px;
+            background: #1a4d1a;
+            color: #d4d4c4;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 16px;
+            align-self: center;
+        }
+
+        .newsletter-form button:hover {
+            background: #2b4d1a;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f2d0f;
+            color: #d4d4c4;
+            padding: 30px;
+            text-align: center;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #1a4d1a;
+            color: #d4d4c4;
+            text-decoration: none;
+            border-radius: 0;
+            margin-top: 30px;
+            font-weight: 600;
+            transition: background 0.3s;
+            font-size: 16px;
+            border: 2px solid #d4a574;
+        }
+
+        .cta-button:hover {
+            background: #2b4d1a;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .offerings-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .events-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .accommodation-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-content {
+                padding: 40px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .offerings-grid,
+            .events-grid,
+            .accommodation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo-circle">🏡</div>
+                <div class="logo-text">WILDING in the WEALD</div>
+            </div>
+            <div class="header-right">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/wildingintheweald/" target="_blank" title="Instagram">
+                        <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">📷</div>
+                    </a>
+                    <a href="https://www.facebook.com/p/Wilding-in-the-Weald-61559855008459/" target="_blank" title="Facebook">
+                        <div style="width: 45px; height: 45px; background: #1877f2; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">f</div>
+                    </a>
+                </div>
+                <div class="cart-icon">🛒</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#archaeology">Bronze Age Settlement</a></li>
+                <li><a href="#rewilding">Rewilding</a></li>
+                <li><a href="#horse">Intuitive Horse</a></li>
+                <li><a href="#gift">Gift Card</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Wilding in the Weald</h1>
+            <p>Welcome to New Coghurst, a family-run farm, rewilding project and outdoor education hub, situated in a Sussex Area of Outstanding Natural Beauty. We offer a broad range of experiences for all ages, facilitating connection with nature and local history.</p>
+            <p>New Coghurst is also a Bronze Age archaeological site of significance, which is currently under excavation. There are so many ways to get involved, from archaeological digs and ancestral skills workshops to kids nature connection days and much, much more. We look forward to meeting you soon!</p>
+        </div>
+    </section>
+
+    <!-- What We Offer -->
+    <section class="offerings-section">
+        <h2 class="section-title">What We Offer</h2>
+        <p class="section-subtitle">There is so much on offer at New Coghurst for people of all ages, from archaeological digs and workshops to kids nature connection days and one-to one therapeutic sessions. Click on a section to find out more.</p>
+        
+        <div class="offerings-grid">
+            <div class="offering-card">
+                <div class="offering-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%234a7c59' width='400' height='400'/%3E%3Ccircle cx='200' cy='200' r='180' fill='%23d4a574' opacity='0.3'/%3E%3Ctext x='200' y='220' font-size='80' text-anchor='middle' fill='%23fff'%3E⛏️%3C/text%3E%3C/svg%3E" alt="Archaeology">
+                </div>
+                <div class="offering-content">
+                    <h3>Archaeology</h3>
+                    <p>Opportunities for kids and adults to join the dig team and help excavate the Bronze Age settlement</p>
+                </div>
+            </div>
+
+            <div class="offering-card">
+                <div class="offering-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%234a7c59' width='400' height='400'/%3E%3Ccircle cx='200' cy='200' r='180' fill='%23d4a574' opacity='0.3'/%3E%3Ctext x='200' y='220' font-size='80' text-anchor='middle' fill='%23fff'%3E🔨%3C/text%3E%3C/svg%3E" alt="Workshops">
+                </div>
+                <div class="offering-content">
+                    <h3>Workshops</h3>
+                    <p>Primitive workshops - Try your hand at flint knapping, foraging, basket making, metal work and more</p>
+                </div>
+            </div>
+
+            <div class="offering-card">
+                <div class="offering-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%234a7c59' width='400' height='400'/%3E%3Ccircle cx='200' cy='200' r='180' fill='%23d4a574' opacity='0.3'/%3E%3Ctext x='200' y='220' font-size='80' text-anchor='middle' fill='%23fff'%3E🌙%3C/text%3E%3C/svg%3E" alt="Ritual Landscapes">
+                </div>
+                <div class="offering-content">
+                    <h3>Ritual Landscapes</h3>
+                    <p>Rediscover the ancient practice of celebrating and honouring nature's seasonal cycles with our ritual retreat days</p>
+                </div>
+            </div>
+
+            <div class="offering-card">
+                <div class="offering-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%234a7c59' width='400' height='400'/%3E%3Ccircle cx='200' cy='200' r='180' fill='%23d4a574' opacity='0.3'/%3E%3Ctext x='200' y='220' font-size='80' text-anchor='middle' fill='%23fff'%3E🌳%3C/text%3E%3C/svg%3E" alt="Nature Connection">
+                </div>
+                <div class="offering-content">
+                    <h3>Nature Connection</h3>
+                    <p>Outdoor activity days for families and children. Facilitating learning through imagination and play</p>
+                </div>
+            </div>
+
+            <div class="offering-card">
+                <div class="offering-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%234a7c59' width='400' height='400'/%3E%3Ccircle cx='200' cy='200' r='180' fill='%23d4a574' opacity='0.3'/%3E%3Ctext x='200' y='220' font-size='80' text-anchor='middle' fill='%23fff'%3E🐴%3C/text%3E%3C/svg%3E" alt="Intuitive Horse">
+                </div>
+                <div class="offering-content">
+                    <h3>Intuitive Horse</h3>
+                    <p>EAPD (Equine Assisted Personal Development) sessions, workshops and retreats</p>
+                </div>
+            </div>
+
+            <div class="offering-card">
+                <div class="offering-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%234a7c59' width='400' height='400'/%3E%3Ccircle cx='200' cy='200' r='180' fill='%23d4a574' opacity='0.3'/%3E%3Ctext x='200' y='220' font-size='80' text-anchor='middle' fill='%23fff'%3E🍄%3C/text%3E%3C/svg%3E" alt="Foraging">
+                </div>
+                <div class="offering-content">
+                    <h3>Foraging & Ecology</h3>
+                    <p>We host seasonal foraging & ecology workshops as well as community wildlife surveying days</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Upcoming Events -->
+    <section class="events-section">
+        <h2 class="section-title">All Upcoming Events</h2>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%234a7c59' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">The Fire Horse And Sound Bath Retreat for Adults 21st February</h4>
+                    <p class="event-price">£150.00</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%236b8e6b' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">Following the Herds' Lead half day Retreat 14th March for Adults</h4>
+                    <p class="event-price">£95.00</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23d4a574' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">Rooted in Ritual year long course for Adults starting March</h4>
+                    <p class="event-price">£600.00</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%234a7c59' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">Following the Herds' Lead half day Retreat 18th April for Adults</h4>
+                    <p class="event-price">£150.00</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%236b8e6b' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">Following the Herds' Lead half day Retreat 2nd May for Adults</h4>
+                    <p class="event-price">£150.00</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%234a7c59' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">Kids Dig - 16th May</h4>
+                    <p class="event-price">£10.00</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%236b8e6b' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">Kids Dig - 30th May</h4>
+                    <p class="event-price">£10.00</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%234a7c59' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">2 Day Following The Herds' Lead Retreat 27th & 28th June</h4>
+                    <p class="event-price">£280.00</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%236b8e6b' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">2 Day Following The Herds' Lead Retreat 18th & 19th July</h4>
+                    <p class="event-price">£280.00</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%234a7c59' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">Following the Herds' Lead and Forage for Medicine 22nd August</h4>
+                    <p class="event-price">£150.00</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%236b8e6b' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">Following the Herds' Lead Retreat 26th September for Adults</h4>
+                    <p class="event-price">£150.00</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%234a7c59' width='400' height='300'/%3E%3C/svg%3E" alt="Event">
+                </div>
+                <div class="event-content">
+                    <h4 class="event-title">Following the Herds' Lead Retreat 10th October for Adults</h4>
+                    <p class="event-price">£150.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archaeology Section -->
+    <section class="archaeology-section" id="archaeology">
+        <h2>Step back in time...</h2>
+        
+        <p>Archaeological digs at the beginning of each month from Spring to Autumn uncovering the Bronze Age Settlement discovered <a href="#digs">here!</a></p>
+        <p style="margin-top: 20px;">Opportunities for anyone to come and join the digs, stay on site, and take part in primitive skills workshops!</p>
+        <p style="margin-top: 10px;"><a href="mailto:wildingintheweald@gmail.com?subject=Enquiry">Email us</a> for more information</p>
+        
+        <div class="video-section">
+            <h3>Time Team visits New Coghurst!</h3>
+            <div class="video-container">
+                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; background: #333;">
+                    🎬 Video Player
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation -->
+    <section class="accommodation-section">
+        <h2>Book Your Accommodation</h2>
+        <p class="accommodation-intro">Visiting from further afield? No problem, book to stay on-site. Currently our accommodation is only available for guests coming to join our archaeological digs, workshops or other experiences and events. All accommodation options include access to our toilet and washroom facilities.</p>
+        
+        <div class="accommodation-grid">
+            <div class="accommodation-card">
+                <div class="accommodation-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e8dcc4' width='400' height='300'/%3E%3Ctext x='200' y='160' font-size='80' text-anchor='middle' fill='%232b4d1a'%3E⛺%3C/text%3E%3C/svg%3E" alt="Bell Tent">
+                </div>
+                <div class="accommodation-content">
+                    <h3>Bell Tent</h3>
+                    <p>Sleeps 2</p>
+                </div>
+            </div>
+
+            <div class="accommodation-card">
+                <div class="accommodation-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e8dcc4' width='400' height='300'/%3E%3Ctext x='200' y='160' font-size='80' text-anchor='middle' fill='%232b4d1a'%3E🏠%3C/text%3E%3C/svg%3E" alt="Shepherds Hut">
+                </div>
+                <div class="accommodation-content">
+                    <h3>The Shepherds Hut</h3>
+                    <p>Sleeps 2</p>
+                    <p>Solar powered</p>
+                </div>
+            </div>
+
+            <div class="accommodation-card">
+                <div class="accommodation-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e8dcc4' width='400' height='300'/%3E%3Ctext x='200' y='160' font-size='80' text-anchor='middle' fill='%232b4d1a'%3E🏕️%3C/text%3E%3C/svg%3E" alt="Camping">
+                </div>
+                <div class="accommodation-content">
+                    <h3>Camping</h3>
+                    <p>Option to pitch your own tent</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accommodation-cta">
+            <p><a href="mailto:wildingintheweald@gmail.com?subject=Accommodation%20inquiry" style="color: #d4d4c4; text-decoration: underline;">Email us</a> to inquire about availability, book or find out more about accommodation options.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>How to Find Us</h2>
+            
+            <div class="contact-map">
+                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #2b4d1a; font-size: 24px;">
+                    🗺️ Map Placeholder
+                </div>
+            </div>
+
+            <div class="contact-content">
+                <div class="visit-info">
+                    <h3>Visit Us</h3>
+                    <p><strong>New Coghurst Farm</strong></p>
+                    <p>Ivyhouse lane</p>
+                    <p>Hastings</p>
+                    <p>TN35 4NP</p>
+                    <p style="margin-top: 30px;">07825 036 301 &nbsp;&nbsp;&nbsp; 07813 665 993</p>
+                    <p style="margin-top: 15px;"><a href="mailto:wildingintheweald@gmail.com?subject=Enquiry">wildingintheweald@gmail.com</a></p>
+                </div>
+
+                <div class="newsletter-box">
+                    <h3>Stay Connected with Us</h3>
+                    <form class="newsletter-form" onsubmit="return handleSubmit(event)">
+                        <input type="email" placeholder="Enter Your Email *" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Wilding in the Weald. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Newsletter form
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for subscribing! We\'ll keep you updated on our events and activities.');
+            event.target.reset();
+            return false;
+        }
+    </script>
+</body>
+</html>
