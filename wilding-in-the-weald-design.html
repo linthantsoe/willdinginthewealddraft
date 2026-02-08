@@ -381,19 +381,20 @@
         /* Archaeology Section */
         .archaeology-section {
             background: #e8dcc4;
-            padding: 80px 40px;
+            padding: 60px 0px;
             text-align: center;
         }
 
         .archaeology-section h2 {
             font-size: 56px;
-            margin-bottom: 40px;
+            margin-bottom: 0;
             color: #2b4d1a;
             font-weight: 300;
             background: #1a4d1a;
             color: #d4d4c4;
-            padding: 40px;
-            margin: 0 0 40px 0;
+            padding: 60px 40px;
+            margin: 60px 0 60px 0;
+            width: 100%;
         }
 
         .archaeology-section p {
@@ -401,6 +402,7 @@
             margin: 0 auto 20px;
             font-size: 20px;
             color: #2b4d1a;
+            padding: 0 40px;
         }
 
         .archaeology-section a {
@@ -413,6 +415,7 @@
         .video-section {
             max-width: 1000px;
             margin: 60px auto 0;
+            padding: 0 40px 80px 40px;
         }
 
         .video-section h3 {
@@ -435,8 +438,9 @@
 
         /* Accommodation Section */
         .accommodation-section {
-            background: #1a4d1a;
+            background: #e8dcc4;
             padding: 80px 0;
+            position: relative;
         }
 
         .accommodation-section h2 {
@@ -445,19 +449,33 @@
             color: #d4d4c4;
             font-weight: 300;
             text-align: center;
+            background: #1a4d1a;
+            padding: 40px 20px;
+            margin: 0 0 30px 0;
         }
 
         .accommodation-intro {
             max-width: 900px;
-            margin: 0 auto 60px;
+            margin: 0 auto 20px;
             text-align: center;
-            color: #d4d4c4;
+            color: #05470c;
             font-size: 16px;
             padding: 0 40px;
         }
 
+        .email-link-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .email-link-container a {
+            color: #05470c;
+            text-decoration: underline;
+            font-size: 16px;
+        }
+
         .accommodation-grid {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
             display: grid;
@@ -467,14 +485,25 @@
 
         .accommodation-card {
             background: #1a4d1a;
-            border: 3px solid #d4a574;
+            border: 5px solid #1a4d1a;
             overflow: hidden;
+        }
+
+        .accommodation-card h3 {
+            color: #d4a574;
+            font-size: 24px;
+            font-weight: 400;
+            text-align: center;
+            padding: 20px;
+            background: #1a4d1a;
+            margin: 0;
         }
 
         .accommodation-image {
             width: 100%;
-            height: 300px;
+            height: 350px;
             overflow: hidden;
+            border: 5px solid #1a4d1a;
         }
 
         .accommodation-image img {
@@ -484,17 +513,10 @@
         }
 
         .accommodation-content {
-            padding: 30px;
+            padding: 20px;
             text-align: center;
             background: #1a4d1a;
             color: #d4d4c4;
-        }
-
-        .accommodation-content h3 {
-            margin-bottom: 15px;
-            color: #d4a574;
-            font-size: 24px;
-            font-weight: 400;
         }
 
         .accommodation-content p {
@@ -614,13 +636,6 @@
         }
 
         /* Footer */
-        footer {
-            background: #0f2d0f;
-            color: #d4d4c4;
-            padding: 30px;
-            text-align: center;
-        }
-
         /* CTA Button */
         .cta-button {
             display: inline-block;
@@ -981,13 +996,15 @@
         <h2>Book Your Accommodation</h2>
         <p class="accommodation-intro">Visiting from further afield? No problem, book to stay on-site. Currently our accommodation is only available for guests coming to join our archaeological digs, workshops or other experiences and events. All accommodation options include access to our toilet and washroom facilities.</p>
         
+        <div class="email-link-container">
+            <p class="accommodation-intro"><a href="mailto:wildingintheweald@gmail.com">Email us</a> to inquire about availability, book or find out more about accommodation options.</p>
+        </div>
+        
         <div class="accommodation-grid">
             <div class="accommodation-card">
-                            <div class="accommodation-content">
-                    <h3>Bell Tent</h3>
-                </div>
+                <h3>Bell Tent</h3>
                 <div class="accommodation-image">
-                    <img src="https://static.wixstatic.com/media/96461d_080f54c9f37543baad3f96e7a539e61e~mv2.jpeg/v1/crop/x_363,y_0,w_2578,h_2737/fill/w_596,h_632,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/96461d_080f54c9f37543baad3f96e7a539e61e~mv2.jpeg" alt="Bell Tent">
+                    <img src="bell-tent.jpg" alt="Bell Tent" onerror="this.src='https://static.wixstatic.com/media/96461d_080f54c9f37543baad3f96e7a539e61e~mv2.jpeg/v1/crop/x_363,y_0,w_2578,h_2737/fill/w_596,h_632,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/96461d_080f54c9f37543baad3f96e7a539e61e~mv2.jpeg'">
                 </div>
                 <div class="accommodation-content">
                     <p>Sleeps 2</p>
@@ -995,33 +1012,25 @@
             </div>
 
             <div class="accommodation-card">
-                            <div class="accommodation-content">
-                    <h3>Bell Tent</h3>
-                </div>
+                <h3>The Shepherds Hut</h3>
                 <div class="accommodation-image">
-                    <img src="https://static.wixstatic.com/media/96461d_080f54c9f37543baad3f96e7a539e61e~mv2.jpeg/v1/crop/x_363,y_0,w_2578,h_2737/fill/w_596,h_632,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/96461d_080f54c9f37543baad3f96e7a539e61e~mv2.jpeg" alt="Bell Tent">
+                    <img src="shepherds-hut.jpg" alt="The Shepherds Hut" onerror="this.src='https://static.wixstatic.com/media/96461d_4ac98acf3abe4825a26f0516c5fa6492~mv2.jpg/v1/crop/x_0,y_0,w_2802,h_3024/fill/w_294,h_316,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/96461d_4ac98acf3abe4825a26f0516c5fa6492~mv2.jpg'">
                 </div>
                 <div class="accommodation-content">
                     <p>Sleeps 2</p>
+                    <p>Solar powered</p>
                 </div>
             </div>
 
             <div class="accommodation-card">
-                            <div class="accommodation-content">
-                    <h3>Bell Tent</h3>
-                </div>
+                <h3>Camping</h3>
                 <div class="accommodation-image">
-                    <img src="https://static.wixstatic.com/media/96461d_080f54c9f37543baad3f96e7a539e61e~mv2.jpeg/v1/crop/x_363,y_0,w_2578,h_2737/fill/w_596,h_632,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/96461d_080f54c9f37543baad3f96e7a539e61e~mv2.jpeg" alt="Bell Tent">
+                    <img src="camping.jpg" alt="Camping" onerror="this.src='https://static.wixstatic.com/media/96461d_26e2d85eec9646d79ca6ef6e35b1ecfd~mv2.jpg/v1/crop/x_699,y_0,w_2844,h_3024/fill/w_297,h_316,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/96461d_26e2d85eec9646d79ca6ef6e35b1ecfd~mv2.jpg'">
                 </div>
                 <div class="accommodation-content">
-                    <p>Sleeps 2</p>
+                    <p>Option to pitch your own tent</p>
                 </div>
             </div>
-            </div>
-        </div>
-
-        <div class="accommodation-cta">
-            <p><a href="/cdn-cgi/l/emai" style="color: #d4d4c4; text-decoration: underline;">Email us</a> to inquire about availability, book or find out more about accommodation options.</p>
         </div>
     </section>
 
@@ -1032,7 +1041,7 @@
             
             <div class="contact-map">
                 <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #2b4d1a; font-size: 24px;">
-                    🗺️ Map Placeholder
+                    [Map Placeholder]
                 </div>
             </div>
 
@@ -1057,11 +1066,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Wilding in the Weald. All rights reserved.</p>
-    </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Smooth scrolling
